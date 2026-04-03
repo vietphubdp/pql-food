@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+server/.env
+*.log
+stitch_pqlfood/
+stitch_pqlfood2/
+.idea/
