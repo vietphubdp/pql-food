@@ -41,7 +41,7 @@ mern-pql-food/
 ### Bước 1 — Clone repository
 
 ```bash
-git clone [<URL-repo-của-bạn>.git](https://github.com/vietphubdp/pql-food.git)
+git clone https://github.com/vietphubdp/pql-food.git
 cd mern-pql-food
 ```
 
