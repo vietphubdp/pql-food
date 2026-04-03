@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { adminApi } from "./adminApi.js";
 import { formatMoney } from "./format.js";
+import { apiUrl } from "../config/apiBase.js";
 
 const emptyForm = {
   name: "",
@@ -215,7 +216,7 @@ export default function AdminProducts() {
                     <td className="px-4 py-2">
                       <div className="w-12 h-12 rounded-lg bg-slate-100 overflow-hidden">
                         {p.images?.[0] ? (
-                          <img src={p.images[0]} alt="" className="w-full h-full object-cover" />
+                          <img src={apiUrl(p.images[0])} alt="" className="w-full h-full object-cover" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-slate-300">
                             <span className="material-symbols-outlined text-xl">image</span>

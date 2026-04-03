@@ -1,3 +1,5 @@
+import { apiUrl } from "../config/apiBase.js";
+
 const TOKEN_KEY = "pql_admin_token";
 
 function getToken() {
@@ -27,10 +29,13 @@ async function request(path, options = {}) {
   }
   const t = getToken();
   if (t) headers.Authorization = `Bearer ${t}`;
-  const res = await fetch(`/api${path.startsWith("/") ? path : `/${path}`}`, {
-    ...options,
-    headers,
-  });
+  const res = await fetch(
+    apiUrl(`/api${path.startsWith("/") ? path : `/${path}`}`),
+    {
+      ...options,
+      headers,
+    }
+  );
   const text = await res.text();
   let data;
   try {
@@ -49,7 +54,7 @@ async function requestForm(path, formData) {
   const headers = {};
   const t = getToken();
   if (t) headers.Authorization = `Bearer ${t}`;
-  const res = await fetch(`/api${path.startsWith("/") ? path : `/${path}`}`, {
+  const res = await fetch(apiUrl(`/api${path.startsWith("/") ? path : `/${path}`}`), {
     method: "POST",
     headers,
     body: formData,

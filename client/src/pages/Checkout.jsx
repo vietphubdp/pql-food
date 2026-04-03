@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 import { api } from "../api";
+import { apiUrl } from "../config/apiBase.js";
 
 const PAY_LABEL = {
   momo: "Momo / ví",
@@ -307,7 +308,7 @@ export default function Checkout() {
                   <p className="text-sm font-bold text-primary-container mb-3">Quét QR Momo</p>
                   {paymentCfg.momoQrImageUrl ? (
                     <img
-                      src={paymentCfg.momoQrImageUrl}
+                      src={apiUrl(paymentCfg.momoQrImageUrl)}
                       alt="QR Momo"
                       className="w-48 h-48 object-contain rounded-lg bg-white p-2 mx-auto border border-surface-container-high"
                     />
@@ -357,7 +358,7 @@ export default function Checkout() {
                     <div className="pt-2">
                       <p className="text-xs font-semibold text-on-surface-variant mb-2">QR ngân hàng</p>
                       <img
-                        src={paymentCfg.bankQrImageUrl}
+                        src={apiUrl(paymentCfg.bankQrImageUrl)}
                         alt="QR ngân hàng"
                         className="w-48 h-48 object-contain rounded-lg bg-white p-2 border border-surface-container-high"
                       />
@@ -398,7 +399,7 @@ export default function Checkout() {
                 >
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-surface-container-low rounded-lg overflow-hidden shrink-0">
                     <img
-                      src={line.image || ""}
+                      src={apiUrl(line.image || "")}
                       alt=""
                       className="w-full h-full object-cover"
                     />
@@ -442,14 +443,14 @@ export default function Checkout() {
                 </p>
                 {payment === "momo" && paymentCfg.momoQrImageUrl ? (
                   <img
-                    src={paymentCfg.momoQrImageUrl}
+                    src={apiUrl(paymentCfg.momoQrImageUrl)}
                     alt=""
                     className="w-full max-w-[160px] mx-auto object-contain rounded-lg"
                   />
                 ) : null}
                 {payment === "bank_transfer" && paymentCfg.bankQrImageUrl ? (
                   <img
-                    src={paymentCfg.bankQrImageUrl}
+                    src={apiUrl(paymentCfg.bankQrImageUrl)}
                     alt=""
                     className="w-full max-w-[160px] mx-auto object-contain rounded-lg"
                   />

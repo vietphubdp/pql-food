@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
+import { apiUrl } from "../config/apiBase.js";
 import { useAuth } from "../context/AuthContext.jsx";
 
 function formatPrice(n) {
@@ -43,7 +44,10 @@ export default function Cart() {
                     className="w-28 h-28 md:w-32 md:h-32 shrink-0 rounded-xl overflow-hidden"
                   >
                     <img
-                      src={line.image || "https://placehold.co/200x200/f3f4f3/073b3a?text=PQL"}
+                      src={
+                        apiUrl(line.image) ||
+                        "https://placehold.co/200x200/f3f4f3/073b3a?text=PQL"
+                      }
                       alt={line.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                     />

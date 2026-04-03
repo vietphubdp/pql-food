@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { api } from "../api";
+import { apiUrl } from "../config/apiBase.js";
 
 function formatPrice(n) {
   return new Intl.NumberFormat("vi-VN").format(n) + "đ";
@@ -170,7 +171,7 @@ export default function OrderDetail() {
               <div key={idx} className="flex gap-4 p-4">
                 <div className="w-20 h-20 rounded-lg overflow-hidden bg-surface-container shrink-0">
                   {line.image ? (
-                    <img src={line.image} alt="" className="w-full h-full object-cover" />
+                    <img src={apiUrl(line.image)} alt="" className="w-full h-full object-cover" />
                   ) : null}
                 </div>
                 <div className="flex-1 min-w-0">

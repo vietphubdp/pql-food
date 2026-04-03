@@ -1,4 +1,4 @@
-const BASE = "";
+import { apiUrl } from "./config/apiBase.js";
 
 function queryString(params) {
   const q = new URLSearchParams();
@@ -17,7 +17,7 @@ async function request(path, options = {}) {
   }
   const token = localStorage.getItem("pql_token");
   if (token) headers.Authorization = `Bearer ${token}`;
-  const res = await fetch(`${BASE}${path}`, { ...options, headers });
+  const res = await fetch(apiUrl(path), { ...options, headers });
   const text = await res.text();
   let data;
   try {

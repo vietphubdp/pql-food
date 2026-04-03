@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { api } from "../api";
+import { apiUrl } from "../config/apiBase.js";
 import { useCart } from "../context/CartContext.jsx";
 
 const BANNER_DEFAULT =
@@ -239,7 +240,7 @@ export default function CategoryListing() {
                       </span>
                     ) : null}
                     <img
-                      src={(p.images && p.images[0]) || BANNER_DEFAULT}
+                      src={apiUrl((p.images && p.images[0]) || BANNER_DEFAULT)}
                       alt={p.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

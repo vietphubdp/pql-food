@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { api } from "../api";
+import { apiUrl } from "../config/apiBase.js";
 import { useCart } from "../context/CartContext.jsx";
 
 function formatPrice(n) {
@@ -112,7 +113,7 @@ export default function ProductDetail() {
             ) : null}
             {mainImg ? (
               <img
-                src={mainImg}
+                src={apiUrl(mainImg)}
                 alt={product.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -132,7 +133,7 @@ export default function ProductDetail() {
                     imgIdx === idx ? "border-primary-container ring-2 ring-primary-container/20" : "border-transparent opacity-90 hover:opacity-100"
                   }`}
                 >
-                  <img src={images[idx]} alt="" className="w-full h-full object-cover" />
+                  <img src={apiUrl(images[idx])} alt="" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
@@ -306,7 +307,7 @@ export default function ProductDetail() {
                   className="block aspect-square rounded-xl overflow-hidden mb-4 bg-surface-container-low"
                 >
                   <img
-                    src={(p.images && p.images[0]) || mainImg}
+                    src={apiUrl((p.images && p.images[0]) || mainImg)}
                     alt={p.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />

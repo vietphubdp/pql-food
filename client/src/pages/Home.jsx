@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { api } from "../api";
+import { apiUrl } from "../config/apiBase.js";
 import { useCart } from "../context/CartContext.jsx";
 
 function formatPrice(n) {
@@ -149,7 +150,7 @@ export default function Home() {
                 <Link to={`/san-pham/${p.slug}`} className="block relative aspect-square overflow-hidden">
                   <img
                     alt={p.name}
-                    src={(p.images && p.images[0]) || heroImg}
+                    src={apiUrl((p.images && p.images[0]) || heroImg)}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   {p.badgeFresh || p.badgeSale ? (

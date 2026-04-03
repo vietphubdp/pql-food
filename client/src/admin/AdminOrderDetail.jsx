@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { adminApi } from "./adminApi.js";
 import { formatMoney, formatDate } from "./format.js";
+import { apiUrl } from "../config/apiBase.js";
 
 const statusLabels = {
   processing: "Đang xử lý",
@@ -199,7 +200,7 @@ export default function AdminOrderDetail() {
             <li key={i} className="px-5 py-3 flex gap-4">
               <div className="w-14 h-14 rounded-lg bg-slate-100 overflow-hidden shrink-0">
                 {line.image ? (
-                  <img src={line.image} alt="" className="w-full h-full object-cover" />
+                  <img src={apiUrl(line.image)} alt="" className="w-full h-full object-cover" />
                 ) : null}
               </div>
               <div className="flex-1 min-w-0">
